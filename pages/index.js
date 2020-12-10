@@ -44,7 +44,7 @@ export default function Home() {
     </Layout>
   ) : (
     <Layout title={"onBíblia - Sua Bíblia Online !"}>
-      <div className={style.container_testament}>
+      {/* <div className={style.container_testament}>
         <button
           className={"btn_testament btn_VT"}
           onClick={() => setTestament("VT")}
@@ -57,7 +57,7 @@ export default function Home() {
         >
           Novo Testamento
         </button>
-      </div>
+      </div> */}
 
       <div className={"container_books"}>
         <ul>

@@ -9,16 +9,16 @@ export default function Navbar() {
     <>
       <div
         style={{
-          position: "fixed",
+          position: "sticky",
           top: "0",
           left: "0",
           width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0.2rem 1rem",
+          padding: "0 1rem",
           background: "#fff",
-          boxShadow: "0 1px 2px rgba(0, 0, 0, .15)",
+          boxShadow: "0 1px 1px rgba(0, 0, 0, .15)",
           zIndex: "100",
         }}
       >

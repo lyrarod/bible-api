@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-
 import Link from "next/link";
+
 import Layout from "../../components/Layout";
 import style from "../../styles/verses.module.css";
 
@@ -35,7 +35,7 @@ export default function Chapter() {
         style={{
           display: "grid",
           placeItems: "center",
-          height: "100vh",
+          height: "50vh",
         }}
       >
         <Loading />
@@ -44,9 +44,9 @@ export default function Chapter() {
   ) : (
     <Layout title={`onBíblia - ${data.book?.name} ${data.chapter?.number}`}>
       <div className={style.container_title}>
-        <h3>
+        <h2>
           {data.book?.name} {data.chapter?.number}
-        </h3>
+        </h2>
         <Link href={`/${data.book?.abbrev.pt}`}>
           <a>{iconArrow}</a>
         </Link>

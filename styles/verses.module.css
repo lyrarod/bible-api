@@ -1,6 +1,6 @@
 .container_title {
   position: sticky;
-  top: 54px;
+  top: 47.5px;
   left: 0;
   width: 100%;
   display: flex;
@@ -22,10 +22,11 @@
 }
 
 .ol_verses {
-  margin-top: 4rem;
+  margin-top: 0.8rem;
 }
 
 .ol_verses li {
+  font-size: 1.02rem;
   padding: 0.5rem 1rem;
   background: whitesmoke;
 }

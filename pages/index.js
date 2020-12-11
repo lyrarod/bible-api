@@ -2,14 +2,14 @@ import { useState } from "react";
 import useSWR from "swr";
 
 import Link from "next/link";
-import style from "../styles/abbrev.module.css";
+import style from "../styles/home.module.css";
 
 import Layout from "../components/Layout";
 import Loading from "../components/Loading";
 
-import { FaBible } from "react-icons/fa";
+import { FcReadingEbook } from "react-icons/fc";
 
-const iconBible = <FaBible className={"icon"} size={"1rem"} />;
+const iconBible = <FcReadingEbook size={"2rem"} />;
 
 const fetcher = (...args) =>
   fetch(...args, {
@@ -21,6 +21,16 @@ const fetcher = (...args) =>
 
 export default function Home() {
   const [testament, setTestament] = useState("");
+
+  const btnStyleVT = {
+    background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
+    color: testament === "VT" && "#fff",
+  };
+
+  const btnStyleNT = {
+    background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
+    color: testament === "NT" && "#fff",
+  };
 
   const { data, error } = useSWR(
     `https://www.abibliadigital.com.br/api/books`,
@@ -36,30 +46,34 @@ export default function Home() {
         style={{
           display: "grid",
           placeItems: "center",
-          height: "100vh",
+          height: "50vh",
         }}
       >
         <Loading />
       </div>
     </Layout>
   ) : (
-    <Layout title={"onBíblia - Sua Bíblia Online !"}>
-      {/* <div className={style.container_testament}>
+    <Layout title={"onBíblia - Sua Bíblia Online!"}>
+      <div className={style.container_testament}>
         <button
-          className={"btn_testament btn_VT"}
+          style={btnStyleVT}
+          className={style.btn_testament}
           onClick={() => setTestament("VT")}
         >
+          {iconBible} <br />
           Velho Testamento
         </button>
         <button
-          className={"btn_testament btn_NT"}
+          style={btnStyleNT}
+          className={`${style.btn_testament} ${style.btn_NT}`}
           onClick={() => setTestament("NT")}
         >
+          {iconBible} <br />
           Novo Testamento
         </button>
-      </div> */}
+      </div>
 
-      <div className={"container_books"}>
+      <div className={style.container_books}>
         <ul>
           {testament
             ? data
@@ -67,7 +81,17 @@ export default function Home() {
                 .map((book, i) => {
                   return (
                     <Link key={i} href={`/${book.abbrev.pt}`}>
-                      <li>
+                      <li
+                        style={{
+                          color: "#fff",
+                          background:
+                            testament === "VT"
+                              ? "linear-gradient(#2980b9, #3498db)"
+                              : testament === "NT"
+                              ? "linear-gradient(#2980b9, #3498db)"
+                              : null,
+                        }}
+                      >
                         <a>{book.name}</a>
                       </li>
                     </Link>

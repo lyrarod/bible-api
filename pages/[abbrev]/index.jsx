@@ -37,7 +37,7 @@ export default function Abbrev() {
         style={{
           display: "grid",
           placeItems: "center",
-          height: "100vh",
+          height: "50vh",
         }}
       >
         <Loading />
@@ -47,13 +47,13 @@ export default function Abbrev() {
     <Layout title={`onBíblia - ${data.name}`}>
       <div
         style={{
-          position: "fixed",
-          top: "54px",
+          position: "sticky",
+          top: "47.5px",
           left: "0",
           width: "100%",
-          textAlign: "center",
           background: "linear-gradient(#2980b9, #3498db)",
           color: "whitesmoke",
+          padding: "0.25rem 1rem",
           boxShadow: "0 2px 2px rgba(0, 0, 0, 0.15)",
         }}
       >
@@ -63,7 +63,7 @@ export default function Abbrev() {
         {arrChapters.map((chapter) => {
           return (
             <Link key={chapter} href={`/${data.abbrev.pt}/${chapter}`}>
-              <a> {chapter} </a>
+              <a>{chapter}</a>
             </Link>
           );
         })}

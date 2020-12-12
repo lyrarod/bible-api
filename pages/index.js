@@ -8,8 +8,10 @@ import Layout from "../components/Layout";
 import Loading from "../components/Loading";
 
 import { FaBook } from "react-icons/fa";
+import { FaBookReader } from "react-icons/fa";
 
-const iconBible = <FaBook size={"1.2rem"} />;
+const iconClose = <FaBook size={"1.1rem"} />;
+const iconOpen = <FaBookReader size={"1.1rem"} />;
 
 const fetcher = (...args) =>
   fetch(...args, {
@@ -26,16 +28,18 @@ export default function Home() {
     boxShadow:
       testament === "VT" &&
       "1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.4)",
-    background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
-    color: testament === "VT" && "#fff",
+    // background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
+    color: testament === "VT" && "#ddd",
+    cursor: testament === "VT" && "default",
   };
 
   const btnStyleNT = {
     boxShadow:
       testament === "NT" &&
       "1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.4)",
-    background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
-    color: testament === "NT" && "#fff",
+    // background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
+    color: testament === "NT" && "#ddd",
+    cursor: testament === "NT" && "default",
   };
 
   const { data, error } = useSWR(
@@ -66,7 +70,7 @@ export default function Home() {
           className={`${style.btn_testament} ${style.btn_NT}`}
           onClick={() => setTestament("NT")}
         >
-          {iconBible}
+          {testament === "NT" ? iconOpen : iconClose}
           <span style={{ marginLeft: "8px" }}>Novo Testamento</span>
         </button>
 
@@ -75,7 +79,7 @@ export default function Home() {
           className={style.btn_testament}
           onClick={() => setTestament("VT")}
         >
-          {iconBible}
+          {testament === "VT" ? iconOpen : iconClose}
           <span style={{ marginLeft: "8px" }}>Velho Testamento</span>
         </button>
       </div>
@@ -89,15 +93,15 @@ export default function Home() {
                   return (
                     <Link key={i} href={`/${book.abbrev.pt}`}>
                       <li
-                        style={{
-                          color: "#fff",
-                          background:
-                            testament === "VT"
-                              ? "linear-gradient(#2980b9, #3498db)"
-                              : testament === "NT"
-                              ? "linear-gradient(#2980b9, #3498db)"
-                              : null,
-                        }}
+                      // style={{
+                      //   color: "#fff",
+                      //   background:
+                      //     testament === "VT"
+                      //       ? "linear-gradient(#2980b9, #3498db)"
+                      //       : testament === "NT"
+                      //       ? "linear-gradient(#2980b9, #3498db)"
+                      //       : null,
+                      // }}
                       >
                         <a>{book.name}</a>
                       </li>

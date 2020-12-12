@@ -22,5 +22,4 @@
 .container_chapters a:hover {
   background: linear-gradient(#3498db, #2980b9);
   color: #fff;
-  cursor: pointer;
 }

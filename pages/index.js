@@ -35,18 +35,18 @@ export default function Home() {
   const btnStyleVT = {
     boxShadow:
       testament === "VT" &&
-      "1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.4)",
-    // background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
-    color: testament === "VT" && "#ddd",
+      "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
+    background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
+    color: testament === "VT" && "whitesmoke",
     cursor: testament === "VT" && "default",
   };
 
   const btnStyleNT = {
     boxShadow:
       testament === "NT" &&
-      "1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.4)",
-    // background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
-    color: testament === "NT" && "#ddd",
+      "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
+    background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
+    color: testament === "NT" && "whitesmoke",
     cursor: testament === "NT" && "default",
   };
 

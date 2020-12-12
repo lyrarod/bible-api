@@ -7,9 +7,9 @@ import style from "../styles/home.module.css";
 import Layout from "../components/Layout";
 import Loading from "../components/Loading";
 
-import { FcReadingEbook } from "react-icons/fc";
+import { FaBook } from "react-icons/fa";
 
-const iconBible = <FcReadingEbook size={"2rem"} />;
+const iconBible = <FaBook size={"1.2rem"} />;
 
 const fetcher = (...args) =>
   fetch(...args, {
@@ -23,11 +23,17 @@ export default function Home() {
   const [testament, setTestament] = useState("");
 
   const btnStyleVT = {
+    boxShadow:
+      testament === "VT" &&
+      "1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.4)",
     background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
     color: testament === "VT" && "#fff",
   };
 
   const btnStyleNT = {
+    boxShadow:
+      testament === "NT" &&
+      "1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.4)",
     background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
     color: testament === "NT" && "#fff",
   };
@@ -41,7 +47,7 @@ export default function Home() {
   // if (!data) return <div>Loading. . .</div>;
 
   return !data ? (
-    <Layout title={"onBíblia - Sua Bíblia Online !"}>
+    <Layout title={"onBíblia - Sua Bíblia Online"}>
       <div
         style={{
           display: "grid",
@@ -53,23 +59,24 @@ export default function Home() {
       </div>
     </Layout>
   ) : (
-    <Layout title={"onBíblia - Sua Bíblia Online!"}>
+    <Layout title={"onBíblia - Sua Bíblia Online"}>
       <div className={style.container_testament}>
-        <button
-          style={btnStyleVT}
-          className={style.btn_testament}
-          onClick={() => setTestament("VT")}
-        >
-          {iconBible} <br />
-          Velho Testamento
-        </button>
         <button
           style={btnStyleNT}
           className={`${style.btn_testament} ${style.btn_NT}`}
           onClick={() => setTestament("NT")}
         >
-          {iconBible} <br />
-          Novo Testamento
+          {iconBible}
+          <span style={{ marginLeft: "8px" }}>Novo Testamento</span>
+        </button>
+
+        <button
+          style={btnStyleVT}
+          className={style.btn_testament}
+          onClick={() => setTestament("VT")}
+        >
+          {iconBible}
+          <span style={{ marginLeft: "8px" }}>Velho Testamento</span>
         </button>
       </div>
 

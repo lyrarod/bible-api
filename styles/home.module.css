@@ -1,23 +1,30 @@
 .container_testament {
   position: sticky;
-  top: 47.5px;
+  top: 63.5px;
   left: 0;
   width: 100%;
-  padding: 1rem;
-  display: flex;
-  background: whitesmoke;
-  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); */
+  padding: 1rem 2rem;
+  background: #3498db;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .btn_testament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   border: 0;
-  background: #fff;
-  color: #333;
+  background: transparent;
+  color: #fff;
   padding: 10px;
-  font-size: 0.75rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.4);
   transition: 0.2s;
 }
 .btn_testament:hover {
@@ -27,7 +34,7 @@
 }
 
 .btn_testament.btn_NT {
-  margin-left: 20px;
+  margin-bottom: 14px;
 }
 
 .container_books {
@@ -46,12 +53,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* background: linear-gradient(#2980b9, #3498db); */
-  background: #fff;
-  /* color: whitesmoke; */
-  color: #333;
+  background: linear-gradient(#2980b9, #3498db);
+  color: #fff;
   border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition: 0.2s;
 }
@@ -59,7 +64,6 @@
 .container_books ul li:hover {
   background: linear-gradient(#3498db, #2980b9) !important;
   color: #fff !important;
-  cursor: pointer;
 }
 .container_books ul li a {
   font-size: 0.75rem;

@@ -48,7 +48,7 @@ export default function Abbrev() {
       <div
         style={{
           position: "sticky",
-          top: "47.5px",
+          top: "63.5px",
           left: "0",
           width: "100%",
           background: "linear-gradient(#2980b9, #3498db)",

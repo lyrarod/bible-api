@@ -16,7 +16,7 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 1rem",
+          padding: "0.5rem 1rem",
           background: "#fff",
           boxShadow: "0 1px 1px rgba(0, 0, 0, .15)",
           zIndex: "100",

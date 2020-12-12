@@ -19,10 +19,10 @@ const fetcher = (...args) =>
 
 export default function Abbrev() {
   const router = useRouter();
-  const { abbrev } = router.query;
+  const { abbrev } = router.query || [];
 
   const { data, error } = useSWR(
-    `https://www.abibliadigital.com.br/api/books/${abbrev}`,
+    abbrev ? [`https://www.abibliadigital.com.br/api/books/${abbrev}`] : null,
     fetcher
   );
 

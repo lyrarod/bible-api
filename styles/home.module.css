@@ -5,7 +5,7 @@
   width: 100%;
   padding: 1rem 2rem;
   background: linear-gradient(#2980b9, #3498db);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .btn_testament {
@@ -16,7 +16,7 @@
   border: 0;
   background: transparent;
   color: #fff;
-  padding: 10px 0;
+  padding: 12px 0;
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
@@ -32,7 +32,7 @@
 }
 
 .btn_testament.btn_NT {
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 }
 
 .container_books {

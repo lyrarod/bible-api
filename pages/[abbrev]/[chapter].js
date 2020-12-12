@@ -23,7 +23,11 @@ export default function Chapter() {
   const { abbrev, chapter } = router.query;
 
   const { data, error } = useSWR(
-    `https://www.abibliadigital.com.br/api/verses/acf/${abbrev}/${chapter}`,
+    abbrev && chapter
+      ? [
+          `https://www.abibliadigital.com.br/api/verses/acf/${abbrev}/${chapter}`,
+        ]
+      : null,
     fetcher
   );
 

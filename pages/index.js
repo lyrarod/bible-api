@@ -24,6 +24,14 @@ const fetcher = (...args) =>
 export default function Home() {
   const [testament, setTestament] = useState("");
 
+  const { data, error } = useSWR(
+    `https://www.abibliadigital.com.br/api/books`,
+    fetcher
+  );
+
+  if (error) return <div>failed to load</div>;
+  // if (!data) return <div>Loading. . .</div>;
+
   const btnStyleVT = {
     boxShadow:
       testament === "VT" &&
@@ -41,14 +49,6 @@ export default function Home() {
     color: testament === "NT" && "#ddd",
     cursor: testament === "NT" && "default",
   };
-
-  const { data, error } = useSWR(
-    `https://www.abibliadigital.com.br/api/books`,
-    fetcher
-  );
-
-  if (error) return <div>failed to load</div>;
-  // if (!data) return <div>Loading. . .</div>;
 
   return !data ? (
     <Layout title={"onBíblia - Sua Bíblia Online"}>

@@ -23,7 +23,7 @@
   letter-spacing: 1px;
 
   border-radius: 50px;
-  background: transparent;
+  background: #2980b9;
   box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.6),
     inset -1px -1px 1px rgba(0, 0, 0, 0.3);
 
@@ -35,6 +35,7 @@
 
 .btn_testament.btn_NT {
   margin-bottom: 15px;
+  background: #3498db;
 }
 
 .container_books {

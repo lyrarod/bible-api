@@ -59,6 +59,7 @@ export default function Abbrev() {
       >
         <h2>{data.name}</h2>
       </div>
+
       <div className={style.container_chapters}>
         {arrChapters.map((chapter) => {
           return (

@@ -36,7 +36,7 @@ export default function Home() {
     boxShadow:
       testament === "VT" &&
       "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
-    background: testament === "VT" && "linear-gradient(#2980b9, #3498db)",
+    background: testament === "VT" && "#2980b9",
     color: testament === "VT" && "whitesmoke",
     cursor: testament === "VT" && "default",
   };
@@ -45,7 +45,7 @@ export default function Home() {
     boxShadow:
       testament === "NT" &&
       "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
-    background: testament === "NT" && "linear-gradient(#2980b9, #3498db)",
+    background: testament === "NT" && "#3498db",
     color: testament === "NT" && "whitesmoke",
     cursor: testament === "NT" && "default",
   };
@@ -93,15 +93,15 @@ export default function Home() {
                   return (
                     <Link key={i} href={`/${book.abbrev.pt}`}>
                       <li
-                      // style={{
-                      //   color: "#fff",
-                      //   background:
-                      //     testament === "VT"
-                      //       ? "linear-gradient(#2980b9, #3498db)"
-                      //       : testament === "NT"
-                      //       ? "linear-gradient(#2980b9, #3498db)"
-                      //       : null,
-                      // }}
+                        style={{
+                          color: "#fff",
+                          background:
+                            testament === "NT"
+                              ? "#3498db"
+                              : testament === "VT"
+                              ? "#2980b9"
+                              : null,
+                        }}
                       >
                         <a>{book.name}</a>
                       </li>

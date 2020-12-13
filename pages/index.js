@@ -10,9 +10,6 @@ import Loading from "../components/Loading";
 import { FaBook } from "react-icons/fa";
 import { FaBookReader } from "react-icons/fa";
 
-const iconClose = <FaBook size={"1.1rem"} />;
-const iconOpen = <FaBookReader size={"1.1rem"} />;
-
 const fetcher = (...args) =>
   fetch(...args, {
     headers: {
@@ -24,6 +21,11 @@ const fetcher = (...args) =>
 export default function Home() {
   const [testament, setTestament] = useState("");
 
+  const iconOpen = (
+    <FaBookReader size={"2.5rem"} style={{ marginBottom: "5px" }} />
+  );
+  const iconClose = <FaBook size={"2.5rem"} style={{ marginBottom: "5px" }} />;
+
   const { data, error } = useSWR(
     `https://www.abibliadigital.com.br/api/books`,
     fetcher
@@ -33,20 +35,20 @@ export default function Home() {
   // if (!data) return <div>Loading. . .</div>;
 
   const btnStyleVT = {
-    boxShadow:
-      testament === "VT" &&
-      "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
-    background: testament === "VT" && "#2980b9",
-    color: testament === "VT" && "whitesmoke",
+    // boxShadow:
+    //   testament === "VT" &&
+    //   "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
+    // background: testament === "VT" && "#2980b9",
+    color: testament === "VT" && "#fff",
     cursor: testament === "VT" && "default",
   };
 
   const btnStyleNT = {
-    boxShadow:
-      testament === "NT" &&
-      "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
-    background: testament === "NT" && "#3498db",
-    color: testament === "NT" && "whitesmoke",
+    // boxShadow:
+    //   testament === "NT" &&
+    //   "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
+    // background: testament === "NT" && "#3498db",
+    color: testament === "NT" && "#fff",
     cursor: testament === "NT" && "default",
   };
 
@@ -71,7 +73,7 @@ export default function Home() {
           onClick={() => setTestament("NT")}
         >
           {testament === "NT" ? iconOpen : iconClose}
-          <span style={{ marginLeft: "8px" }}>Novo Testamento</span>
+          <p>Novo Testamento</p>
         </button>
 
         <button
@@ -80,7 +82,7 @@ export default function Home() {
           onClick={() => setTestament("VT")}
         >
           {testament === "VT" ? iconOpen : iconClose}
-          <span style={{ marginLeft: "8px" }}>Velho Testamento</span>
+          <p>Velho Testamento</p>
         </button>
       </div>
 
@@ -97,9 +99,9 @@ export default function Home() {
                           color: "#fff",
                           background:
                             testament === "NT"
-                              ? "#3498db"
+                              ? ""
                               : testament === "VT"
-                              ? "#2980b9"
+                              ? ""
                               : null,
                         }}
                       >

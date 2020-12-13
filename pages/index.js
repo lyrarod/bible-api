@@ -22,9 +22,9 @@ export default function Home() {
   const [testament, setTestament] = useState("");
 
   const iconOpen = (
-    <FaBookReader size={"2.5rem"} style={{ marginBottom: "5px" }} />
+    <FaBookReader size={"2rem"} style={{ marginBottom: "5px" }} />
   );
-  const iconClose = <FaBook size={"2.5rem"} style={{ marginBottom: "5px" }} />;
+  const iconClose = <FaBook size={"2rem"} style={{ marginBottom: "5px" }} />;
 
   const { data, error } = useSWR(
     `https://www.abibliadigital.com.br/api/books`,
@@ -78,7 +78,7 @@ export default function Home() {
 
         <button
           style={btnStyleVT}
-          className={style.btn_testament}
+          className={`${style.btn_testament} ${style.btn_VT}`}
           onClick={() => setTestament("VT")}
         >
           {testament === "VT" ? iconOpen : iconClose}

@@ -28,6 +28,6 @@ const styleDiv = {
   justifyContent: "space-between",
   padding: "0.5rem 1rem",
   background: "#fff",
-  boxShadow: "0 1px 1px rgba(0, 0, 0, .15)",
+  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
   zIndex: "100",
 };

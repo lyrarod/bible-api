@@ -49,7 +49,10 @@ export default function Chapter() {
     <Layout title={`onBíblia - ${data.book?.name} ${data.chapter?.number}`}>
       <div className={style.container_title}>
         <h2>
-          {data.book?.name} {data.chapter?.number}
+          {data.book?.name === "Lamentações de Jeremias"
+            ? "Lamentações"
+            : data.book?.name}{" "}
+          {data.chapter?.number}
         </h2>
         <Link href={`/${data.book?.abbrev.pt}`}>
           <a>{iconArrow}</a>

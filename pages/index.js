@@ -22,9 +22,9 @@ export default function Home() {
   const [testament, setTestament] = useState("");
 
   const iconOpen = (
-    <FaBookReader size={"2rem"} style={{ marginBottom: "5px" }} />
+    <FaBookReader size={"1.2rem"} style={{ marginBottom: "5px" }} />
   );
-  const iconClose = <FaBook size={"2rem"} style={{ marginBottom: "5px" }} />;
+  const iconClose = <FaBook size={"1.2rem"} style={{ marginBottom: "5px" }} />;
 
   const { data, error } = useSWR(
     `https://www.abibliadigital.com.br/api/books`,
@@ -35,19 +35,19 @@ export default function Home() {
   // if (!data) return <div>Loading. . .</div>;
 
   const btnStyleVT = {
-    // boxShadow:
-    //   testament === "VT" &&
-    //   "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
-    // background: testament === "VT" && "#2980b9",
+    boxShadow:
+      testament === "VT" &&
+      "1px 1px 1px rgba(255, 255, 255, 0.4), -1px -1px 1px rgba(0, 0, 0, 0.2)",
+    background: testament === "VT" && "#3498db",
     color: testament === "VT" && "#fff",
     cursor: testament === "VT" && "default",
   };
 
   const btnStyleNT = {
-    // boxShadow:
-    //   testament === "NT" &&
-    //   "1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.3)",
-    // background: testament === "NT" && "#3498db",
+    boxShadow:
+      testament === "NT" &&
+      "1px 1px 1px rgba(255, 255, 255, 0.4), -1px -1px 1px rgba(0, 0, 0, 0.2)",
+    background: testament === "NT" && "#3498db",
     color: testament === "NT" && "#fff",
     cursor: testament === "NT" && "default",
   };
@@ -105,7 +105,11 @@ export default function Home() {
                               : null,
                         }}
                       >
-                        <a>{book.name}</a>
+                        <a>
+                          {book.name === "Lamentações de Jeremias"
+                            ? "Lamentações"
+                            : book.name}
+                        </a>
                       </li>
                     </Link>
                   );
@@ -114,7 +118,11 @@ export default function Home() {
                 return (
                   <Link key={i} href={`/${book.abbrev.pt}`}>
                     <li>
-                      <a>{book.name}</a>
+                      <a>
+                        {book.name === "Lamentações de Jeremias"
+                          ? "Lamentações"
+                          : book.name}
+                      </a>
                     </li>
                   </Link>
                 );

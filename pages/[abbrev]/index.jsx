@@ -48,7 +48,7 @@ export default function Abbrev() {
       <div
         style={{
           position: "sticky",
-          top: "63.5px",
+          top: "53px",
           left: "0",
           width: "100%",
           background: "linear-gradient(#2980b9, #3498db)",
@@ -57,7 +57,9 @@ export default function Abbrev() {
           boxShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
         }}
       >
-        <h2>{data.name}</h2>
+        <h2 style={{ textAlign: "center" }}>
+          {data.name === "Lamentações de Jeremias" ? "Lamentações" : data.name}
+        </h2>
       </div>
 
       <div className={style.container_chapters}>

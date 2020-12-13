@@ -21,10 +21,8 @@ const fetcher = (...args) =>
 export default function Home() {
   const [testament, setTestament] = useState("");
 
-  const iconOpen = (
-    <FaBookReader size={"1.2rem"} style={{ marginBottom: "5px" }} />
-  );
-  const iconClose = <FaBook size={"1.2rem"} style={{ marginBottom: "5px" }} />;
+  const iconOpen = <FaBookReader size={"1.3rem"} />;
+  const iconClose = <FaBook size={"1.3rem"} />;
 
   const { data, error } = useSWR(
     `https://www.abibliadigital.com.br/api/books`,
@@ -73,7 +71,7 @@ export default function Home() {
           onClick={() => setTestament("NT")}
         >
           {testament === "NT" ? iconOpen : iconClose}
-          <p>Novo Testamento</p>
+          <p>NT</p>
         </button>
 
         <button
@@ -82,11 +80,32 @@ export default function Home() {
           onClick={() => setTestament("VT")}
         >
           {testament === "VT" ? iconOpen : iconClose}
-          <p>Velho Testamento</p>
+          <p>VT</p>
         </button>
       </div>
 
       <div className={style.container_books}>
+        {testament !== "" && (
+          <h3
+            style={{
+              color: "#2980b9",
+              textAlign: "center",
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              marginBottom: "1rem",
+              borderLeft: "2px solid #2980b9",
+              borderBottom: "2px solid #2980b9",
+              borderBottomLeftRadius: "4px",
+            }}
+          >
+            {testament === "NT"
+              ? `Novo Testamento`
+              : testament === "VT"
+              ? "Velho Testamento"
+              : null}
+          </h3>
+        )}
+
         <ul>
           {testament
             ? data

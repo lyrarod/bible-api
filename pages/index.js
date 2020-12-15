@@ -70,7 +70,14 @@ export default function Home() {
           }}
         >
           {testament === "VT" ? iconOpen : iconClose}
-          <p style={{ marginLeft: "10px" }}>Velho Testamento</p>
+          <p
+            style={{
+              marginLeft: "6px",
+              fontSize: testament === "VT" && "0.63rem",
+            }}
+          >
+            Velho Testamento
+          </p>
         </button>
 
         <button
@@ -82,7 +89,14 @@ export default function Home() {
           }}
         >
           {testament === "NT" ? iconOpen : iconClose}
-          <p style={{ marginLeft: "10px" }}>Novo Testamento</p>
+          <p
+            style={{
+              marginLeft: "6px",
+              fontSize: testament === "NT" && "0.63rem",
+            }}
+          >
+            Novo Testamento
+          </p>
         </button>
       </div>
 

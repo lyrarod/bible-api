@@ -5,6 +5,7 @@
   border-radius: 50%;
   border-top-color: #3498db;
   animation: isRotating 1s infinite;
+  -webkit-animation: isRotating 1s infinite;
 }
 
 @keyframes isRotating {

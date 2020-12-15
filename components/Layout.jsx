@@ -14,7 +14,7 @@ export default function Layout({ title, children }) {
         />
 
         <link
-          href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </Head>

@@ -21,8 +21,8 @@ const fetcher = (...args) =>
 export default function Home() {
   const [testament, setTestament] = useState("");
 
-  const iconOpen = <FaBookReader size={"1.3rem"} />;
-  const iconClose = <FaBook size={"1.3rem"} />;
+  const iconOpen = <FaBookReader size={"1rem"} color="#2d3436" />;
+  const iconClose = <FaBook size={"1rem"} />;
 
   const { data, error } = useSWR(
     `https://www.abibliadigital.com.br/api/books`,
@@ -33,20 +33,16 @@ export default function Home() {
   // if (!data) return <div>Loading. . .</div>;
 
   const btnStyleVT = {
-    boxShadow:
-      testament === "VT" &&
-      "1px 1px 1px rgba(255, 255, 255, 0.4), -1px -1px 1px rgba(0, 0, 0, 0.2)",
-    background: testament === "VT" && "#3498db",
-    color: testament === "VT" && "#fff",
+    boxShadow: testament === "VT" && "inset 2px 2px 3px rgba(0, 0, 0, 0.2)",
+    // background: testament === "VT" && "#81ecec",
+    color: testament === "VT" && "#111",
     cursor: testament === "VT" && "default",
   };
 
   const btnStyleNT = {
-    boxShadow:
-      testament === "NT" &&
-      "1px 1px 1px rgba(255, 255, 255, 0.4), -1px -1px 1px rgba(0, 0, 0, 0.2)",
-    background: testament === "NT" && "#3498db",
-    color: testament === "NT" && "#fff",
+    boxShadow: testament === "NT" && "inset 2px 2px 3px rgba(0, 0, 0, 0.2)",
+    // background: testament === "NT" && "#81ecec",
+    color: testament === "NT" && "#111",
     cursor: testament === "NT" && "default",
   };
 
@@ -66,46 +62,25 @@ export default function Home() {
     <Layout title={"onBíblia - Sua Bíblia Online"}>
       <div className={style.container_testament}>
         <button
-          style={btnStyleNT}
-          className={`${style.btn_testament} ${style.btn_NT}`}
-          onClick={() => setTestament("NT")}
-        >
-          {testament === "NT" ? iconOpen : iconClose}
-          <p>NT</p>
-        </button>
-
-        <button
           style={btnStyleVT}
           className={`${style.btn_testament} ${style.btn_VT}`}
           onClick={() => setTestament("VT")}
         >
           {testament === "VT" ? iconOpen : iconClose}
-          <p>VT</p>
+          <p style={{ marginLeft: "10px" }}>Velho Testamento</p>
+        </button>
+
+        <button
+          style={btnStyleNT}
+          className={`${style.btn_testament} ${style.btn_NT}`}
+          onClick={() => setTestament("NT")}
+        >
+          {testament === "NT" ? iconOpen : iconClose}
+          <p style={{ marginLeft: "10px" }}>Novo Testamento</p>
         </button>
       </div>
 
       <div className={style.container_books}>
-        {testament !== "" && (
-          <h3
-            style={{
-              color: "#2980b9",
-              textAlign: "center",
-              textTransform: "uppercase",
-              letterSpacing: "1px",
-              marginBottom: "1rem",
-              borderLeft: "2px solid #2980b9",
-              borderBottom: "2px solid #2980b9",
-              borderBottomLeftRadius: "4px",
-            }}
-          >
-            {testament === "NT"
-              ? `Novo Testamento`
-              : testament === "VT"
-              ? "Velho Testamento"
-              : null}
-          </h3>
-        )}
-
         <ul>
           {testament
             ? data
@@ -113,18 +88,17 @@ export default function Home() {
                 .map((book, i) => {
                   return (
                     <Link key={i} href={`/${book.abbrev.pt}`}>
-                      <li
-                        style={{
-                          color: "#fff",
-                          background:
-                            testament === "NT"
-                              ? ""
-                              : testament === "VT"
-                              ? ""
-                              : null,
-                        }}
-                      >
-                        <a>
+                      <li>
+                        <a
+                          style={{
+                            color:
+                              testament === "NT"
+                                ? "#fff"
+                                : testament === "VT"
+                                ? "#fff"
+                                : null,
+                          }}
+                        >
                           {book.name === "Lamentações de Jeremias"
                             ? "Lamentações"
                             : book.name}

@@ -24,15 +24,23 @@ const styleDiv = {
   top: "0",
   left: "0",
   width: "100%",
+  height: "100%",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "0.2rem 1rem",
+  padding: "0 1rem",
   background: "#fff",
   boxShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
   zIndex: "100",
 };
 
-const styleH1 = { color: "#111", fontFamily: "Merienda One, cursive" };
+const styleH1 = {
+  color: "#2d3436",
+  fontFamily: "Lemonada, cursive",
+  textShadow: "1px 1px 1px rgba(0, 0, 0, 0.15)",
+};
 
-const styleSpan = { color: "#3498db", fontFamily: "Merienda One, cursive" };
+const styleSpan = {
+  color: "#74b9ff",
+  fontFamily: "Lemonada, cursive",
+};

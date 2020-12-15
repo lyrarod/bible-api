@@ -48,16 +48,16 @@ export default function Abbrev() {
       <div
         style={{
           position: "sticky",
-          top: "53px",
+          top: "64px",
           left: "0",
           width: "100%",
-          background: "linear-gradient(#2980b9, #3498db)",
+          background: "linear-gradient(#0984e3, #74b9ff)",
           color: "whitesmoke",
           padding: "0.25rem 1rem",
           boxShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
         }}
       >
-        <h2 style={{ textAlign: "center" }}>
+        <h2 style={{ textAlign: "left" }}>
           {data.name === "Lamentações de Jeremias" ? "Lamentações" : data.name}
         </h2>
       </div>

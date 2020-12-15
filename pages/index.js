@@ -5,7 +5,7 @@ import Link from "next/link";
 import style from "../styles/home.module.css";
 
 import Layout from "../components/Layout";
-import Loading from "../components/Loading";
+import Loader from "../components/Loader";
 
 import { FaBook } from "react-icons/fa";
 import { FaBookReader } from "react-icons/fa";
@@ -21,7 +21,7 @@ const fetcher = (...args) =>
 export default function Home() {
   const [testament, setTestament] = useState("");
 
-  const iconOpen = <FaBookReader size={"1rem"} color="#2d3436" />;
+  const iconOpen = <FaBookReader size={"1rem"} color="#636e72" />;
   const iconClose = <FaBook size={"1rem"} />;
 
   const { data, error } = useSWR(
@@ -35,14 +35,14 @@ export default function Home() {
   const btnStyleVT = {
     boxShadow: testament === "VT" && "inset 2px 2px 3px rgba(0, 0, 0, 0.2)",
     // background: testament === "VT" && "#81ecec",
-    color: testament === "VT" && "#111",
+    color: testament === "VT" && "#636e72",
     cursor: testament === "VT" && "default",
   };
 
   const btnStyleNT = {
     boxShadow: testament === "NT" && "inset 2px 2px 3px rgba(0, 0, 0, 0.2)",
     // background: testament === "NT" && "#81ecec",
-    color: testament === "NT" && "#111",
+    color: testament === "NT" && "#636e72",
     cursor: testament === "NT" && "default",
   };
 
@@ -55,7 +55,7 @@ export default function Home() {
           height: "50vh",
         }}
       >
-        <Loading />
+        <Loader />
       </div>
     </Layout>
   ) : (
@@ -64,7 +64,10 @@ export default function Home() {
         <button
           style={btnStyleVT}
           className={`${style.btn_testament} ${style.btn_VT}`}
-          onClick={() => setTestament("VT")}
+          onClick={() => {
+            setTestament("VT");
+            testament !== "VT" && window.scrollTo(0, 0);
+          }}
         >
           {testament === "VT" ? iconOpen : iconClose}
           <p style={{ marginLeft: "10px" }}>Velho Testamento</p>
@@ -73,7 +76,10 @@ export default function Home() {
         <button
           style={btnStyleNT}
           className={`${style.btn_testament} ${style.btn_NT}`}
-          onClick={() => setTestament("NT")}
+          onClick={() => {
+            setTestament("NT");
+            testament !== "NT" && window.scrollTo(0, 0);
+          }}
         >
           {testament === "NT" ? iconOpen : iconClose}
           <p style={{ marginLeft: "10px" }}>Novo Testamento</p>

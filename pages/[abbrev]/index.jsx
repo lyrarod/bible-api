@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 
 import style from "../../styles/abbrev.module.css";
 
-import Loading from "../../components/Loading";
+import Loader from "../../components/Loader";
 
 const fetcher = (...args) =>
   fetch(...args, {
@@ -40,7 +40,7 @@ export default function Abbrev() {
           height: "50vh",
         }}
       >
-        <Loading />
+        <Loader />
       </div>
     </Layout>
   ) : (

@@ -6,7 +6,7 @@ import Layout from "../../components/Layout";
 import style from "../../styles/verses.module.css";
 
 import { TiArrowBackOutline } from "react-icons/ti";
-import Loading from "../../components/Loading";
+import Loader from "../../components/Loader";
 
 const iconArrow = <TiArrowBackOutline size={"2rem"} />;
 
@@ -42,7 +42,7 @@ export default function Chapter() {
           height: "50vh",
         }}
       >
-        <Loading />
+        <Loader />
       </div>
     </Layout>
   ) : (
